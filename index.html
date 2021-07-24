@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src='script.js' defer></script>
-	<title>Lab 04</title>
-	<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="script.js" defer></script>
+  <title>Lab 04</title>
+  <link
+  href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+  rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/layout.css">
+
 </head>
 
 <body>
-	<h1>Minimal Todo List</h1>
-	<input  type='text'>
-	<button>+</button>
-</body>
+  <div class="layout">
 
+
+    <div class="add-task">
+      <input class="task-input focus:outline-none" id="taskInput"   type="text" placeholder="Type TODO > ............">
+      <button class="add-btn" id="addtask" >+ Add </button>
+    </div>
+
+
+    <div class="show-task">
+      <div class="todo-list">
+        <div style="font-size:30px">
+          TODO
+        </div>
+        <div class="todo-data" id="toDos"></div>
+      </div>
+
+      <div class="done-list">
+        <div style="font-size:30px">
+          DONE
+        </div>
+        <div class="done-data" id="doneTasks">
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</body>
 </html>
