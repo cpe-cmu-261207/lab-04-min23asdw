@@ -11,34 +11,19 @@ const toDoKey = "toDos";
 const doneTasksKey = "doneTasks";
 //local storage
 const isSupported = () => (typeof (Storage) !== "undefined");
+const d = new Date();
+const days = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat'
+]
+const dayIndex = d.getDay()
+const dayName = days[dayIndex]
 
-function getFormatedDateTime(timestamp) {
-  if (timestamp !== null) {
-    const dateAndTime = new Date(timestamp.toDate());
-
-    let formatDate = dateAndTime.toLocaleDateString([], {
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-    });
-
-    formatDate += " | ";
-
-    if (lastTime !== null) {
-      if (lastTime.toDateString() === dateAndTime.toDateString()) {
-        formatDate = "";
-      }
-    }
-
-    lastTime = dateAndTime;
-
-    let formatTime = dateAndTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-
-    return formatDate + formatTime;
-  } else {
-    return "";
-  }
-}
 // addTask click or enter
 taskInput.addEventListener("keyup", (event) => {
   if (event.keyCode === 13) {
@@ -52,10 +37,9 @@ addTask.addEventListener("click", () => {
     alert("Task cannot be empty");
     return;
   }
-  const time = new Date();
-  console.log(time);
-  const taskData =  taskInput.value;  //รับค่า
-  addToDo(taskData);  //เก็บค่า
+  console.log(dayName);
+  const taskData = dayName +":    "+taskInput.value;  //รับค่า
+  addToDo(taskData,dayName);  //เก็บค่า
   taskInput.value = "";   // เคลียค่า
 });
 
